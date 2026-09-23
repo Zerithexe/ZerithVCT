@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05070b" />
+  <meta name="description" content="VCT PULSE — VALORANT Champions Shanghai 2026 canlı maç merkezi, takımlar, oyuncular, haberler ve ücretsiz fan tahminleri." />
+  <title>VCT PULSE — Champions Shanghai 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="VCT PULSE ana sayfa">
+      <span class="brand-mark">VP</span>
+      <span>
+        <strong>VCT PULSE</strong>
+        <small>CHAMPIONS SHANGHAI 2026</small>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Ana navigasyon">
+      <a class="nav-link active" href="#home">Ana Sayfa</a>
+      <a class="nav-link" href="#matches">Maçlar</a>
+      <a class="nav-link" href="#teams">Takımlar</a>
+      <a class="nav-link" href="#groups">Gruplar</a>
+      <a class="nav-link" href="#news">Haberler</a>
+      <a class="nav-link" href="#fan-challenge">Fan Challenge</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" title="Tema değiştir" aria-label="Tema değiştir">◐</button>
+      <div id="userArea"></div>
+    </div>
+  </header>
+
+  <main id="app">
+    <section id="home" class="hero section-pad">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> LIVE DATA READY · ISTANBUL TIME</div>
+        <h1>WORLD CHAMPIONS.<br><em>ONE PULSE.</em></h1>
+        <p>Champions Shanghai 2026 için canlı maç merkezi, skor takibi, turnuva grupları, oyuncu &amp; koç profilleri ve topluluk özellikleri tek yerde.</p>
+        <div class="hero-buttons">
+          <a href="#matches" class="btn btn-primary">Maçları Gör <span>→</span></a>
+          <a href="#teams" class="btn btn-ghost">Takımları İncele</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="pill red">CHAMPIONS</span>
+          <span class="muted">SHANGHAI · 24 SEP — 18 OCT</span>
+        </div>
+        <div class="count-label">Büyük turnuvaya kalan</div>
+        <div class="countdown" id="eventCountdown">--:--:--:--</div>
+        <div class="count-grid">
+          <span><b>16</b> TAKIM</span><span><b>4</b> GRUP</span><span><b>₹</b> $2.25M HAVUZ</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="ticker-wrap">
+      <div class="ticker-label">VCT NOW</div>
+      <div class="ticker-track" id="liveTicker"></div>
+    </section>
+
+    <section class="section-pad" id="matches">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">MATCH CENTER</span>
+          <h2>Canlı &amp; Yaklaşan Maçlar</h2>
+        </div>
+        <div class="head-tools">
+          <span class="sync-status" id="syncStatus"><i></i> Demo veri</span>
+          <button class="mini-btn" id="refreshBtn">↻ Yenile</button>
+        </div>
+      </div>
+
+      <div class="match-feature" id="nextMatch"></div>
+      <div class="match-filters">
+        <button class="filter active" data-filter="all">Tümü</button>
+        <button class="filter" data-filter="upcoming">Yaklaşan</button>
+        <button class="filter" data-filter="live">Canlı</button>
+        <button class="filter" data-filter="completed">Biten</button>
+      </div>
+      <div class="matches-grid" id="matchesGrid"></div>
+    </section>
+
+    <section class="section-pad split-section" id="groups">
+      <div>
+        <div class="section-head compact"><div><span class="section-kicker">GROUP STAGE</span><h2>GSL Grupları</h2></div></div>
+        <div class="groups-grid" id="groupsGrid"></div>
+      </div>
+      <aside class="side-card">
+        <div class="side-card-head"><span class="section-kicker">TOURNAMENT FORMAT</span><span class="status-chip">OFFLINE</span></div>
+        <h3>Her maç önemli.</h3>
+        <p>16 takım, 4 GSL grubu. Grup aşamasında Bo3; her gruptan en iyi iki takım playofflara ilerliyor.</p>
+        <div class="format-line"><span>GROUP STAGE</span><b>24 SEP — 04 OCT</b></div>
+        <div class="format-line"><span>PLAYOFFS</span><b>07 OCT — 18 OCT</b></div>
+        <div class="format-line"><span>GRAND FINAL</span><b>18 OCT · 14:00 CST</b></div>
+        <a class="text-link" href="#matches">Takvimi aç →</a>
+      </aside>
+    </section>
+
+    <section class="section-pad" id="teams">
+      <div class="section-head">
+        <div><span class="section-kicker">TEAM DATABASE</span><h2>Katılan 16 Takım</h2></div>
+        <input class="search" id="teamSearch" type="search" placeholder="Takım ara..." autocomplete="off" />
+      </div>
+      <div class="teams-grid" id="teamsGrid"></div>
+    </section>
+
+    <section class="section-pad" id="news">
+      <div class="section-head"><div><span class="section-kicker">NEWSROOM</span><h2>VALORANT Gündemi</h2></div><span class="muted">Resmî kaynak odaklı</span></div>
+      <div class="news-grid" id="newsGrid"></div>
+    </section>
+
+    <section class="section-pad" id="fan-challenge">
+      <div class="section-head">
+        <div><span class="section-kicker">COMMUNITY</span><h2>Fan Challenge</h2></div>
+        <div class="points-box"><span>PUAN</span><b id="pointsValue">0</b></div>
+      </div>
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <div class="challenge-top"><span class="pill purple">ÜCRETSİZ</span><span id="challengeWindow">Maç sonucu tahmini</span></div>
+          <h3>Maçını seç, sonucu tahmin et.</h3>
+          <p>Her karşılaşma için bir seçim yapabilirsin. Doğru sonuçlar profilinde XP/puan olarak birikir; puanlar para yerine turnuva sonu profil rozetleri ve topluluk sıralamasında kullanılır.</p>
+          <div id="challengeList"></div>
+          <p class="small-note">Not: Bu özellik para yatırma, bahis veya gerçek para ödülü içermez.</p>
+        </div>
+        <div class="leaderboard-card">
+          <div class="challenge-top"><span class="pill">LEADERBOARD</span><span>SEZON 2026</span></div>
+          <div id="leaderboard"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad dashboard-section" id="dashboard">
+      <div class="section-head"><div><span class="section-kicker">MY PULSE</span><h2>Profil Panosu</h2></div></div>
+      <div class="dashboard-grid">
+        <div class="dash-card"><span>Toplam Puan</span><b id="dashPoints">0</b><small>Fan Challenge XP</small></div>
+        <div class="dash-card"><span>Doğru Tahmin</span><b id="dashCorrect">0</b><small>Maç sonucu</small></div>
+        <div class="dash-card"><span>Katılım</span><b id="dashPredictions">0</b><small>Seçim sayısı</small></div>
+        <div class="dash-card wide"><span>Rozetler</span><div class="badges" id="badges"></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-pad">
+    <div><strong>VCT PULSE</strong><p>Bağımsız topluluk projesi. Riot Games ile bağlantılı değildir.</p></div>
+    <div class="footer-links"><a href="#home">Yukarı</a><a href="#news">Haberler</a><a href="#teams">Takımlar</a><a href="https://valorantesports.com" target="_blank" rel="noreferrer">Resmî VCT ↗</a></div>
+  </footer>
+
+  <div class="modal-backdrop hidden" id="authModal">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+      <button class="modal-close" data-close-modal>×</button>
+      <span class="section-kicker">VCT PULSE ACCOUNT</span>
+      <h2 id="authTitle">Hesabına giriş yap</h2>
+      <div class="tabs"><button class="auth-tab active" data-auth-tab="login">Giriş</button><button class="auth-tab" data-auth-tab="register">Kayıt Ol</button></div>
+      <form id="authForm">
+        <label>Kullanıcı adı<input id="authUser" required maxlength="20" autocomplete="username" /></label>
+        <label id="emailWrap">E-posta<input id="authEmail" type="email" autocomplete="email" /></label>
+        <label>Şifre<input id="authPass" type="password" required minlength="6" autocomplete="current-password" /></label>
+        <label class="check"><input id="rememberMe" type="checkbox" checked /> Beni hatırla</label>
+        <button class="btn btn-primary full" type="submit" id="authSubmit">Giriş Yap</button>
+        <p class="form-message" id="authMessage"></p>
+      </form>
+      <p class="tiny-muted">GitHub Pages sürümünde hesaplar cihazın tarayıcısında demo olarak tutulur. Gerçek çoklu-cihaz üyelik için README'deki Supabase/Firebase adımına geç.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="teamModal">
+    <div class="modal team-modal" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle">
+      <button class="modal-close" data-close-team>×</button>
+      <div id="teamModalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
